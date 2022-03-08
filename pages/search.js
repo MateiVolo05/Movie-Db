@@ -94,7 +94,7 @@ function SearchResults() {
             <Button
               as="a"
               variant="link"
-              rightIcon={<Badge>{release_date.split('-').reverse().join('-')}</Badge>}
+              rightIcon={<Badge>{release_date}</Badge>}
             >
               <Text as="span">{title} </Text>
             </Button>

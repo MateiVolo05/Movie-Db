@@ -126,11 +126,10 @@ const MovieContent = () => {
 
 function Providers(){
   const terms = useRouter().query.id
-  if(useRouter().query.country)
-    text=useRouter().query.country.toUpperCase()
+  text=useRouter().query.country
   const { data, error } = useSWR(terms && `/api/providers/${terms}/${text}`);
   if (!text) {
-    return <p>Type the country code and submit for a quick search</p>;
+    return <p>Type the country code (with uppercase letters) and submit for a quick search</p>;
   }
   if (error) {
     return (
@@ -151,11 +150,12 @@ function Providers(){
       names.push(item.provider_name)
       id.push(item.provider_id)
     })
+    let i=0;
   return (
     <OrderedList stylePosition="inside">
       {
         names.map((e)=>
-          <ListItem>{e}</ListItem>
+          <ListItem key={id[i++]}>{e}</ListItem>
         )
       }
     </OrderedList>

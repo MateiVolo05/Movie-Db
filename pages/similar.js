@@ -18,7 +18,7 @@ class App extends React.Component {
 
     componentDidMount() {
         fetch(
-          "/api/watchlist")
+          "/api/history")
             .then((res) => res.json())
             .then((json) => {
                 this.setState({
@@ -34,7 +34,7 @@ class App extends React.Component {
    
         return (
           <Layout title="Homepage">
-            <Box mb={20}><Center><Heading as="h2" fontSize='5xl'>Similar Movies</Heading></Center></Box>
+            <Box mb={20}><Center><Heading as="h2" fontSize='5xl'>Similar Movies based on your search history</Heading></Center></Box>
             <Center>
               <Stack
                 as="nav"
