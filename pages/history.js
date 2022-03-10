@@ -1,9 +1,7 @@
-import { Badge, Box, Button, Heading, Link, GridItem, Center, Icon, Image, Grid} from "@chakra-ui/react";
+import { Badge, Box, Button, Heading, Link, GridItem, Center, Icon, Grid} from "@chakra-ui/react";
 import React from "react";
 import Layout from '../components/Layout'
 import {ChevronRightIcon} from '@chakra-ui/icons'
-import { buildImageUrl } from '../utils/api';
-
 class App extends React.Component {
    
     // Constructor 
@@ -39,7 +37,7 @@ class App extends React.Component {
             <Box mb={20}><Center><Heading as="h2" fontSize='5xl'>Your Recent Movies</Heading></Center></Box>
             <Center>
               <Grid
-                templateColumns='repeat(2, auto)'
+                templateColumns='repeat(1, auto)'
                 direction={['column', , 'row']}
                 align={['start', , 'center']}
                 justify="space-between"
@@ -60,18 +58,6 @@ class App extends React.Component {
                         {item.title}
                       </Button>
                     </Link>
-                  </GridItem>
-                  <GridItem>
-                    <Image
-                      src={buildImageUrl(item.poster_path, 'w300')}
-                      alt="Movie poster"
-                      layout="responsive"
-                      width="150"
-                      height="300"
-                      pb="12"
-                      objectFit="contain"
-                      unoptimized
-                    />
                   </GridItem>
                 </>
               ))}

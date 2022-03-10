@@ -43,7 +43,7 @@ class App extends React.Component {
                   py="1.5rem"
               >
                 {results.map((item) => (
-                  <GridItem key={item.id} fontSize='2xl' pt="12vh" pl="2vh">
+                  <GridItem key={item.id} fontSize='2xl' pt="12vh" pl="2vh" pr="2vh">
                     Because you added{" "}
                     <Link href={`/movies/${item.id}`} passHref color="orange.500">
                       <Button
@@ -54,7 +54,7 @@ class App extends React.Component {
                       <p as="span">{item.title} </p>
                       </Button>
                     </Link> in your watchlist
-                    <Recomandations id={item.id} fontSize='lg'/>
+                    <Recomandations id={item.id} />
                   </GridItem>
                 ))}
               </Stack>
@@ -93,7 +93,8 @@ function Recomandations(props){
             <Button
               as="a"
               variant="link"
-              rightIcon={<Badge color='orange'>{vote_average}{" / 10"}</Badge>}
+              fontSize='lg'
+              rightIcon={<Badge color='orange'>{parseFloat(vote_average.toFixed(1))}{" / 10"}</Badge>}
             >
               <p as="span">{title} </p>
             </Button>
